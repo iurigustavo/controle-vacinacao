@@ -36,6 +36,10 @@ php artisan db:seed
 - Apontar o seu servidor de aplicação para a pasta `/public`
 - executar `php artisan serve` para rodar local
 
+### Usuário Padrão
+- usuário `admin@admin.com`
+- senha `123456`
+
 ## Problemas, Perguntas e Pull Requests
 Você pode relatar problemas ou fazer perguntas na [issues section](https://github.com/iurigustavo/controle-vacinacao/issues). Por favor, comece seu problema com `PROBLEMA:` e sua pergunta com `PERGUNTA:` no assunto.
 
