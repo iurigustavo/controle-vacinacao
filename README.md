@@ -18,7 +18,7 @@ Sistema de controle de vacinações, com cadastro de pessoas, cargos, locais, va
 
 ### Executar
 
-- executar `composer create-project iurigustavo/controle-vacinacao vacinacao`
+- executar `composer create-project --prefer-dist iurigustavo/controle-vacinacao vacinacao`
 
 ### Configuração
 - Criar banco de dados com o nome `vacinacoes`
