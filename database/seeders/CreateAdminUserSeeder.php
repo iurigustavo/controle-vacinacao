@@ -21,7 +21,8 @@
             $user = User::create([
                 'name'     => 'Administrador',
                 'email'    => 'admin@admin.com',
-                'password' => bcrypt('123456')
+                'password' => bcrypt('123456'),
+                'enabled' => 1
             ]);
 
             $role = Role::query()->where('name', 'admin')->first();
