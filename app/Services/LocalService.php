@@ -53,7 +53,7 @@
          */
         public function saveLocal($data)
         {
-            $validator = Validator::make($data, ['descricao' => 'required']);
+            $validator = Validator::make($data, ['descricao' => 'required','endereco' => 'required']);
             if ($validator->fails()) {
                 throw new InvalidArgumentException($validator->errors()->first());
             }
@@ -69,7 +69,7 @@
          */
         public function updateLocal($data, $id)
         {
-            $validator = Validator::make($data, ['descricao' => 'required']);
+            $validator = Validator::make($data, ['descricao' => 'required', 'endereco' => 'required']);
 
             if ($validator->fails()) {
                 throw new InvalidArgumentException($validator->errors()->first());

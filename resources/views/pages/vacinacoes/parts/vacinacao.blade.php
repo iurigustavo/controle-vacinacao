@@ -52,7 +52,7 @@
     {!! Form::label('sexo','Gênero Biológico',['class' => 'col-lg-3 col-xl-2 col-form-label text-right']) !!}
     <div class="col-lg-9">
         <div class="input-group">
-            {!! Form::select('sexo',[NULL=>'Selecione uma opção','Masculino' => 'Masculino' ,'Feminino' => 'Feminino'],$model->sexo, [ 'id' => 'sexo','class' => 'form-control validate[required]']) !!}
+            {!! Form::select('sexo',[null=>'Selecione uma opção','Masculino' => 'Masculino' ,'Feminino' => 'Feminino'],$model->sexo, [ 'id' => 'sexo','class' => 'form-control validate[required]']) !!}
         </div>
     </div>
 </div>
@@ -61,7 +61,15 @@
     {!! Form::label('raca_id','Raça/Etnia',['class' => 'col-lg-3 col-xl-2 col-form-label text-right']) !!}
     <div class="col-lg-9">
         <div class="input-group">
-            {!! Form::select('raca_id',[NULL=>'Selecione uma opção']+$listaRacas,$model->raca_id, [ 'id' => 'raca_id','class' => 'form-control validate[required]']) !!}
+            {!! Form::select('raca_id',[null=>'Selecione uma opção']+$listaRacas,$model->raca_id, [ 'id' => 'raca_id','class' => 'form-control validate[required]']) !!}
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    {!! Form::label('telefone','Telefone',['class' => 'col-lg-3 col-xl-2 col-form-label text-right']) !!}
+    <div class="col-lg-9">
+        <div class="input-group">
+            {!! Form::text('telefone',$model->telefone, [ 'id' => 'telefone','class' => 'form-control']) !!}
         </div>
     </div>
 </div>
@@ -115,7 +123,7 @@
     {!! Form::label('end_uf','Estado',['class' => 'col-lg-3 col-xl-2 col-form-label text-right']) !!}
     <div class="col-lg-9">
         <div class="input-group">
-            {!! Form::select('end_uf',[NULL=>'Selecione uma opção']+$estadosBrasileiros,$model->end_uf, [ 'id' => 'end_uf','class' => 'form-control']) !!}
+            {!! Form::select('end_uf',[null=>'Selecione uma opção']+$estadosBrasileiros,$model->end_uf, [ 'id' => 'end_uf','class' => 'form-control']) !!}
         </div>
     </div>
 </div>

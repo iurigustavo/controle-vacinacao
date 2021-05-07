@@ -2,7 +2,6 @@
 
     namespace App\Http\Requests\Locais;
 
-    use Carbon\Carbon;
     use Illuminate\Foundation\Http\FormRequest;
 
     class LocalRequest extends FormRequest
@@ -10,7 +9,8 @@
         public function rules()
         {
             return [
-                'descricao'    => 'required',
+                'descricao' => 'required',
+                'endereco'  => 'required',
             ];
         }
 

@@ -14,18 +14,34 @@
     |
     */
 
-    Route::get('', 'PagesController@index')->name('home')->middleware('auth');
+    Route::get('', function () {
+        return redirect('/agendamento');
+    });
     Route::get('/home', 'PagesController@index')->name('home')->middleware('auth')->name('home');
     Route::get('/vacinometro', 'PagesController@vacinometro')->name('vacinometro');
     Route::get('/pessoasVacinadas', 'PagesController@pessoasVacinadas')->name('pessoasVacinadas');
 
+    Route::group(['middleware' => ['web']], function () {
+        Route::get('/agendamento', 'Agendamento\AgendamentoController@index')->name('agendamento.index');
+        Route::get('/agendamento/passo/dados-pessoais', 'Agendamento\AgendamentoController@passo1')->name('agendamento.dadosPessoais');
+        Route::post('/agendamento/passo/dados-pessoais', 'Agendamento\AgendamentoController@validaPasso1')->name('agendamento.postDadosPessoais');
+        Route::get('/agendamento/passo/localidade', 'Agendamento\AgendamentoController@passo2')->name('agendamento.localidade');
+        Route::post('/agendamento/passo/localidade', 'Agendamento\AgendamentoController@validaPasso2')->name('agendamento.postLocalidade');
+        Route::get('/agendamento/passo/data-periodo', 'Agendamento\AgendamentoController@passo3')->name('agendamento.dataPeriodo');
+        Route::post('/agendamento/passo/data-periodo', 'Agendamento\AgendamentoController@validaPasso3')->name('agendamento.postDataPeriodo');
+        Route::get('/agendamento/passo/confirmacao', 'Agendamento\AgendamentoController@passo4')->name('agendamento.confirmacao');
+        Route::post('/agendamento/passo/confirmacao', 'Agendamento\AgendamentoController@validaPasso4')->name('agendamento.postConfirmacao');
+        Route::get('/agendamento/confirmacao/{cpf}/{id}', 'Agendamento\ConsultaController@show')->name('agendamento.confirmacao.show');
+        Route::any('/agendamento/consulta/', 'Agendamento\ConsultaController@consulta')->name('agendamento.consulta');
+    });
+
     Auth::routes([
-        'login'    => TRUE,
-        'logout'   => TRUE,
-        'register' => FALSE,
-        'reset'    => TRUE,   // for resetting passwords
-        'confirm'  => FALSE,  // for additional password confirmations
-        'verify'   => FALSE,  // for email verification
+        'login'    => true,
+        'logout'   => true,
+        'register' => false,
+        'reset'    => true,   // for resetting passwords
+        'confirm'  => false,  // for additional password confirmations
+        'verify'   => false,  // for email verification
     ]);
 
 
@@ -35,6 +51,10 @@
         Route::resource('cargos', 'CargosController')->except('edit')->middleware('role:admin');
         Route::resource('vacinas', 'VacinasController')->except('edit')->middleware('role:admin');
         Route::resource('vacinas.lotes', 'LotesController')->except('edit', 'index')->middleware('role:admin');
+        Route::resource('agendas', 'AgendasController')->except('edit')->middleware('role:admin');
+        Route::get('agendados/compareceu/{agendado}/{sit}', 'AgendadosController@compareceu')->name('agendados.compareceu')->middleware('role:admin|digitacao');
+        Route::get('agendados/aplicar-dose/{agendado}', 'AgendadosController@aplicarDose')->name('agendados.aplicarDose')->middleware('role:admin|digitacao');
+        Route::resource('agendados', 'AgendadosController')->only(['show', 'index'])->middleware('role:admin|digitacao');
         Route::resource('audits', 'AuditsController')->only('index')->middleware('role:admin');
 
         Route::get('perfil', 'PerfilController@show')->name('perfil');

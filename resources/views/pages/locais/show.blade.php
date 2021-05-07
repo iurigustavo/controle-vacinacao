@@ -28,10 +28,19 @@
                 {!! Form::label('descricao','Descrição',['class' => 'col-lg-3 col-xl-2 col-form-label text-right']) !!}
                 <div class="col-lg-9">
                     <div class="input-group">
-                        {!! Form::text('descricao',$model->descricao, [ 'id' => 'nome','class' => 'form-control validate[required]']) !!}
+                        {!! Form::text('descricao',$model->descricao, [ 'id' => 'descricao','class' => 'form-control validate[required]']) !!}
                     </div>
                 </div>
             </div>
+            <div class="form-group row">
+                {!! Form::label('endereco','Endereço',['class' => 'col-lg-3 col-xl-2 col-form-label text-right']) !!}
+                <div class="col-lg-9">
+                    <div class="input-group">
+                        {!! Form::text('endereco',$model->endereco, [ 'id' => 'endereco','class' => 'form-control validate[required]']) !!}
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="card-footer">
             {!! Form::submit('Salvar',['class' => 'btn btn-primary font-weight-bolder text-uppercase mr2']) !!}

@@ -102,6 +102,7 @@
 
                 Column::make('id')->title('ID'),
                 Column::make('descricao')->title('Descrição'),
+                Column::make('endereco')->title('Endereço'),
                 Column::computed('action')
                       ->exportable(FALSE)
                       ->printable(FALSE)

@@ -14,6 +14,11 @@
                 'text' => 'Vacinação',
                 'icon' => 'fas fa-fw fa-plus',
                 'url'  => 'vacinacoes',
+            ],
+            [
+                'text' => 'Agendados',
+                'icon' => 'fas fa-fw fa-calendar',
+                'url'  => 'agendados',
             ]
             ,
             [
@@ -33,6 +38,10 @@
                 'text'    => 'Gestão',
                 'icon'    => 'fas fa-fw fa-newspaper',
                 'submenu' => [
+                    [
+                        'text' => 'Agendas',
+                        'url'  => 'agendas',
+                    ],
                     [
                         'text' => 'Cargos',
                         'url'  => 'cargos',

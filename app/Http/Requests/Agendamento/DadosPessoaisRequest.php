@@ -1,37 +1,24 @@
 <?php
 
-    namespace App\Http\Requests\Pessoas;
+    namespace App\Http\Requests\Agendamento;
 
     use App\Http\Helpers\DateUtils;
     use Illuminate\Foundation\Http\FormRequest;
 
-    class PessoasRequest extends FormRequest
+    class DadosPessoaisRequest extends FormRequest
     {
+
         public function rules()
         {
             return [
                 'nome'            => 'required',
                 'cpf'             => 'required',
                 'sexo'            => 'required',
-                'cns'             => 'nullable',
                 'data_nascimento' => 'required|date',
-                'telefone'        => 'nullable',
-                'end_rua'         => 'nullable',
-                'end_numero'      => 'nullable',
-                'end_bairro'      => 'nullable',
-                'end_cep'         => 'nullable',
-                'end_cidade'      => 'nullable',
-                'end_uf'          => 'nullable',
-                'raca_id'         => 'required',
-
+                'telefone'        => 'required',
+                'cns'             => 'nullable'
             ];
         }
-
-        public function authorize()
-        {
-            return true;
-        }
-
         protected function prepareForValidation()
         {
             $this->merge([
