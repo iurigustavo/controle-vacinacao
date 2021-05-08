@@ -87,7 +87,7 @@
         'layout_boxed'         => NULL,
         'layout_fixed_sidebar' => NULL,
         'layout_fixed_navbar'  => NULL,
-        'layout_fixed_footer'  => NULL,
+        'layout_fixed_footer'  => TRUE,
 
         /*
         |--------------------------------------------------------------------------
